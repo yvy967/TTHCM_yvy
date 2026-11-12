@@ -1876,6 +1876,20 @@
             loadSavedState();
             renderDashboard();
         });
-    </script>
+        </script>
+     <!-- Nhúng 5 bộ dữ liệu bổ sung -->
+        <script src="data_bttn1.js"></script>
+        <script src="data_chuong4_p1.js"></script>
+        <script src="data_chuong4_p2.js"></script>
+        <script src="data_chuong5.js"></script>
+        <script src="data_chuong2_3.js"></script>
+        <script>
+        if (window.EXTRA_QUIZ_BANKS && typeof RAW_BANKS !== 'undefined') {
+            window.EXTRA_QUIZ_BANKS.forEach(bank => {
+                RAW_BANKS.push(bank);
+            });
+        }
+        </script>
+
 </body>
 </html>
