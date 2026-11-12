@@ -1875,6 +1875,43 @@
             initTheme();
             loadSavedState();
             renderDashboard();
+            window.addEventListener("DOMContentLoaded", () => {
+    initTheme();
+    loadSavedState();
+    renderDashboard();
+                
+    <!-- 1. KHAI BÁO NHÚNG 5 FILE DỮ LIỆU MỚI Ở ĐÂY -->
+    <script src="data_bttn1.js"></script>
+    <script src="data_chuong2_3.js"></script>
+    <script src="data_chuong4_p1.js"></script>
+    <script src="data_chuong4_p2.js"></script>
+    <script src="data_chuong5.js"></script>
+    
+    // === DÁN ĐOẠN GỘP 5 FILE MỚI VÀO ĐÂY ===
+    if (typeof window.EXTRA_QUIZ_BANKS !== 'undefined' && Array.isArray(window.EXTRA_QUIZ_BANKS)) {
+        window.EXTRA_QUIZ_BANKS.forEach((bank) => {
+            if (typeof DOCUMENTS_DATA !== 'undefined') {
+                DOCUMENTS_DATA.push({
+                    id: "doc_" + Math.random().toString(36).substring(2, 9),
+                    fileName: bank.fileName || "Tài liệu bổ sung mới",
+                    shortTitle: bank.fileName || "Đề bổ sung",
+                    description: "Ngân hàng câu hỏi bổ sung cập nhật mới.",
+                    badgeColor: "from-emerald-600 to-teal-700",
+                    decks: [
+                        { 
+                            id: "deck_" + Math.random().toString(36).substring(2, 9), 
+                            name: "Trọn bộ câu hỏi bổ sung", 
+                            rangeLabel: (bank.questions ? bank.questions.length : 0) + " câu", 
+                            subtitle: bank.fileName, 
+                            questions: bank.questions || [] 
+                        }
+                    ]
+                });
+            }
+        });
+    }
+    // =======================================
+});
         });
     </script>
 </body>
